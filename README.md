@@ -14,7 +14,7 @@ PyTorch implemention of SDEdit: Image Synthesis and Editing with Stochastic Diff
 
 
 
-[**Project**](https://chenlin9.github.io/SDEdit/) | [**Paper**]() | [**Colab**]()
+[**Project**](https://chenlin9.github.io/SDEdit/) | [**Paper**]() | [**Colab**](https://colab.research.google.com/drive/1KkLS53PndXKQpPlS1iK-k1nRQYmlb4aO?usp=sharing)
 ## Downloading the pretrained checkpoints
 The code will automatically download pretrained SDE (VP) PyTorch checkpoints on
 [CelebA-HQ](https://image-editing-test-12345.s3-us-west-2.amazonaws.com/checkpoints/celeba_hq.ckpt), 
