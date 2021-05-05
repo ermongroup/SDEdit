@@ -9,7 +9,7 @@ Stanford University and Carnegie Mellon University
 PyTorch implemention of SDEdit: Image Synthesis and Editing with Stochastic Differential Equations.
 
 <p align="center">
-<img src="https://github.com/chenlin9/image_editing_ddpm/blob/main/images/figure1.jpg" />
+<img src="https://github.com/ermongroup/SDEdit/blob/main/images/figure1.jpg" />
 </p>
 
 
@@ -32,7 +32,7 @@ Given an input scribble painting, our goal is to generate a realistic image that
 We present scribble-based image synthesis with SDEdit on LSUN bedroom, LSUN church and CelebA-HQ datasets. 
 We notice that SDEdit is able to generated multiple diverse images for each scribble painting.
 <p align="center">
-<img src="https://github.com/chenlin9/image_editing_ddpm/blob/main/images/sde_stroke_generation.jpg" />
+<img src="https://github.com/ermongroup/SDEdit/blob/main/images/sde_stroke_generation.jpg" />
 
 To generate images based on scribble images on LSUN datasets, run
 
@@ -45,7 +45,7 @@ python main.py --exp ./runs/ --config church.yml --sample -i images --npy_name l
 </p>
 
 <p align="center">
-<img src="https://github.com/chenlin9/image_editing_ddpm/blob/main/images/stroke_based_generation.jpg" width="800">
+<img src="https://github.com/ermongroup/SDEdit/blob/main/images/stroke_based_generation.jpg" width="800">
 </p>
 
 ## Scribble-based image editing
@@ -53,7 +53,7 @@ Given an input with user added scribbles, we want to generate a realistic image 
 We observe that our method is able to generate image edits that are both realistic and faithful (to the user edit), 
 while avoid making undesired modifications.
 <p align="center">
-<img src="https://github.com/chenlin9/image_editing_ddpm/blob/main/images/stroke_edit.jpg" width="800">
+<img src="https://github.com/ermongroup/SDEdit/blob/main/images/stroke_edit.jpg" width="800">
 </p>
 To perform scribble-based image editing, run
 
