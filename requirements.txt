@@ -1,0 +1,7 @@
+matplotlib==3.3.4
+numpy==1.19.5
+PyYAML==5.4.1
+tensorboard==2.4.1
+torch==1.5.0+cu101
+torchvision==0.6.0+cu101
+tqdm==4.59.0
