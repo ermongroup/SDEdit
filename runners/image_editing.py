@@ -13,8 +13,6 @@ from models.diffusion import Model
 from models.ema import EMAHelper
 from functions.process_data import *
 
-import pdb
-
 
 def get_beta_schedule(*, beta_start, beta_end, num_diffusion_timesteps):
     betas = np.linspace(beta_start, beta_end,
