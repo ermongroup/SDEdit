@@ -8,26 +8,29 @@ PyTorch implementation of SDEdit: Image Synthesis and Editing with Stochastic Di
 [Chenlin Meng](https://cs.stanford.edu/~chenlin/), [Yang Song](https://yang-song.github.io/), [Jiaming Song](http://tsong.me/),
 [Jiajun Wu](https://jiajunwu.com/), [Jun-Yan Zhu](https://www.cs.cmu.edu/~junyanz/) and [Stefano Ermon](https://cs.stanford.edu/~ermon/)
 
-Stanford University and Carnegie Mellon University
+Stanford and CMU
 
 
 <p align="center">
 <img src="https://github.com/ermongroup/SDEdit/blob/main/images/teaser.jpg" />
 </p>
 
+# Overview
+The key intuition of SDEdit is to "hijack" the reverse stochastic process of SDE-based generative models, as illustrated in the figure below. Given an input image for editing, such as a stroke painting or an image with strokes, we can add a suitable amount of noise to make its artifacts undetectable, while still preserving the overall structure of the image. We then initialize the reverse SDE with this noisy input, and simulate the reverse process to obtain a denoised image of high quality. Because the denoised image and the input resembles each other with noise perturbations, they also share the overall image structure.
+<p align="center">
+<img src="https://github.com/ermongroup/SDEdit/blob/main/images/sde_stroke_generation.jpg" />
+</p>
 
-
-
-
-## Downloading the pretrained checkpoints
-The code will automatically download pretrained SDE (VP) PyTorch checkpoints on
+# Getting Started
+## Downloading pretrained models
+The code will automatically download pretrained SDE (VP) PyTorch models on
 [CelebA-HQ](https://image-editing-test-12345.s3-us-west-2.amazonaws.com/checkpoints/celeba_hq.ckpt),
 [LSUN bedroom](https://image-editing-test-12345.s3-us-west-2.amazonaws.com/checkpoints/bedroom.ckpt),
 and [LSUN church outdoor](https://image-editing-test-12345.s3-us-west-2.amazonaws.com/checkpoints/church_outdoor.ckpt).
 
-## Data format
+### Data format
 We save the image and the corresponding mask in an array format ``[image, mask]``, where
-"image" is the image with range ``[0,1]`` in the PyTorch tensor format, "mask" is the corresponding binary mask (also the PyTorch tensor format) specifying the pixels that need editing.
+"image" is the image with range ``[0,1]`` in the PyTorch tensor format, "mask" is the corresponding binary mask (also the PyTorch tensor format) specifying the editing region.
 We provide a few examples, and ``functions/process_data.py``  will automatically download the examples to the ``colab_demo`` folder.
 
 
@@ -35,8 +38,7 @@ We provide a few examples, and ``functions/process_data.py``  will automatically
 Given an input stroke painting, our goal is to generate a realistic image that shares the same structure as the input when no paired data is available.
 We present stroke-based image synthesis with SDEdit on LSUN bedroom, LSUN church and CelebA-HQ datasets.
 SDEdit can synthesize multiple diverse images for each input.
-<p align="center">
-<img src="https://github.com/ermongroup/SDEdit/blob/main/images/sde_stroke_generation.jpg" />
+
 
 To generate images based on stroke images on LSUN datasets, run
 
@@ -46,7 +48,6 @@ python main.py --exp ./runs/ --config bedroom.yml --sample -i images --npy_name 
 ```
 python main.py --exp ./runs/ --config church.yml --sample -i images --npy_name lsun_church --sample_step 3 --t 500  --ni
 ```
-</p>
 
 <p align="center">
 <img src="https://github.com/ermongroup/SDEdit/blob/main/images/stroke_based_generation.jpg" width="800">
@@ -66,14 +67,13 @@ python main.py --exp ./runs/  --config church.yml --sample -i images --npy_name 
 ```
 
 ## References
+If you find this repository useful for your research, please cite the following work.
 ```
-@misc{meng2021sdedit,
-      title={SDEdit: Image Synthesis and Editing with Stochastic Differential Equations}, 
+@article{meng2021sdedit,
+      title={SDEdit: Image Synthesis and Editing with Stochastic Differential Equations},
       author={Chenlin Meng and Yang Song and Jiaming Song and Jiajun Wu and Jun-Yan Zhu and Stefano Ermon},
       year={2021},
-      eprint={2108.01073},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+      journal={arXiv preprint arXiv:2108.01073},
 }
 ```
 
