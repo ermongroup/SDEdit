@@ -66,6 +66,11 @@ To perform stroke-based image editing, run
 python main.py --exp ./runs/  --config church.yml --sample -i images --npy_name lsun_edit --sample_step 3 --t 500  --ni
 ```
 
+## Additional results
+<p align="center">
+<img src="https://github.com/ermongroup/SDEdit/blob/main/images/stroke_generation_extra.jpg" width="800">
+</p>
+
 ## References
 If you find this repository useful for your research, please cite the following work.
 ```
