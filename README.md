@@ -6,7 +6,7 @@
 PyTorch implementation of SDEdit: Image Synthesis and Editing with Stochastic Differential Equations.
 
 [Chenlin Meng](https://cs.stanford.edu/~chenlin/), [Yang Song](https://yang-song.github.io/), [Jiaming Song](http://tsong.me/),
-[Jiajun Wu](https://jiajunwu.com/), [Jun-Yan Zhu](https://www.cs.cmu.edu/~junyanz/) and [Stefano Ermon](https://cs.stanford.edu/~ermon/)
+[Jiajun Wu](https://jiajunwu.com/), [Jun-Yan Zhu](https://www.cs.cmu.edu/~junyanz/), [Stefano Ermon](https://cs.stanford.edu/~ermon/)
 
 Stanford and CMU
 
@@ -16,7 +16,8 @@ Stanford and CMU
 </p>
 
 # Overview
-The key intuition of SDEdit is to "hijack" the reverse stochastic process of SDE-based generative models, as illustrated in the figure below. Given an input image for editing, such as a stroke painting or an image with strokes, we can add a suitable amount of noise to make its artifacts undetectable, while still preserving the overall structure of the image. We then initialize the reverse SDE with this noisy input, and simulate the reverse process to obtain a denoised image of high quality. Because the denoised image and the input resembles each other with noise perturbations, they also share the overall image structure.
+The key intuition of SDEdit is to "hijack" the reverse stochastic process of SDE-based generative models, as illustrated in the figure below. Given an input image for editing, such as a stroke painting or an image with color strokes, we can add a suitable amount of noise to make its artifacts undetectable, while still preserving the overall structure of the image. We then initialize the reverse SDE with this noisy input, and simulate the reverse process to obtain a denoised image of high quality. The final output is realistic while resembling the overall image structure of the input.
+
 <p align="center">
 <img src="https://github.com/ermongroup/SDEdit/blob/main/images/sde_stroke_generation.jpg" />
 </p>
@@ -35,12 +36,12 @@ We provide a few examples, and ``functions/process_data.py``  will automatically
 
 
 ## Stroke-based image generation
-Given an input stroke painting, our goal is to generate a realistic image that shares the same structure as the input when no paired data is available.
-We present stroke-based image synthesis with SDEdit on LSUN bedroom, LSUN church and CelebA-HQ datasets.
-SDEdit can synthesize multiple diverse images for each input.
+Given an input stroke painting, our goal is to generate a realistic image that shares the same structure as the input painting.
+SDEdit can synthesize multiple diverse outputs for each input on LSUN bedroom, LSUN church and CelebA-HQ datasets.
 
 
-To generate images based on stroke images on LSUN datasets, run
+
+To generate results on LSUN datasets, please run
 
 ```
 python main.py --exp ./runs/ --config bedroom.yml --sample -i images --npy_name lsun_bedroom1 --sample_step 3 --t 500  --ni
@@ -54,9 +55,8 @@ python main.py --exp ./runs/ --config church.yml --sample -i images --npy_name l
 </p>
 
 ## Stroke-based image editing
-Given an input image with user strokes, we want to generate a realistic image based on the user's edit.
-We observe that our method is able to generate image edits that are both realistic and faithful (to the user edit),
-while avoid making undesired modifications.
+Given an input image with user strokes, we want to manipulate a natural input image based on the user's edit.
+SDEdit can generate image edits that are both realistic and faithful (to the user edit), while avoid introducing undesired changes.
 <p align="center">
 <img src="https://github.com/ermongroup/SDEdit/blob/main/images/stroke_edit.jpg" width="800">
 </p>
