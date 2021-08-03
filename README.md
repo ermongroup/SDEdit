@@ -15,15 +15,14 @@ Stanford and CMU
 <img src="https://github.com/ermongroup/SDEdit/blob/main/images/teaser.jpg" />
 </p>
 
-# Overview
+## Overview
 The key intuition of SDEdit is to "hijack" the reverse stochastic process of SDE-based generative models, as illustrated in the figure below. Given an input image for editing, such as a stroke painting or an image with color strokes, we can add a suitable amount of noise to make its artifacts undetectable, while still preserving the overall structure of the image. We then initialize the reverse SDE with this noisy input, and simulate the reverse process to obtain a denoised image of high quality. The final output is realistic while resembling the overall image structure of the input.
 
 <p align="center">
 <img src="https://github.com/ermongroup/SDEdit/blob/main/images/sde_stroke_generation.jpg" />
 </p>
 
-# Getting Started
-## Downloading pretrained models
+## Getting Started
 The code will automatically download pretrained SDE (VP) PyTorch models on
 [CelebA-HQ](https://image-editing-test-12345.s3-us-west-2.amazonaws.com/checkpoints/celeba_hq.ckpt),
 [LSUN bedroom](https://image-editing-test-12345.s3-us-west-2.amazonaws.com/checkpoints/bedroom.ckpt),
