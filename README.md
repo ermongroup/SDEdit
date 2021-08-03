@@ -1,7 +1,7 @@
 # SDEdit: Image Synthesis and Editing with Stochastic Differential Equations
 <br>
 
-[**Project**](https://chenlin9.github.io/SDEdit/) | [**Paper**]() | [**Colab**](https://colab.research.google.com/drive/1KkLS53PndXKQpPlS1iK-k1nRQYmlb4aO?usp=sharing)
+[**Project**](https://chenlin9.github.io/SDEdit/) | [**Paper**](https://arxiv.org/abs/2108.01073) | [**Colab**](https://colab.research.google.com/drive/1KkLS53PndXKQpPlS1iK-k1nRQYmlb4aO?usp=sharing)
 
 PyTorch implementation of SDEdit: Image Synthesis and Editing with Stochastic Differential Equations.
 
@@ -67,7 +67,14 @@ python main.py --exp ./runs/  --config church.yml --sample -i images --npy_name 
 
 ## References
 ```
-TODO
+@misc{meng2021sdedit,
+      title={SDEdit: Image Synthesis and Editing with Stochastic Differential Equations}, 
+      author={Chenlin Meng and Yang Song and Jiaming Song and Jiajun Wu and Jun-Yan Zhu and Stefano Ermon},
+      year={2021},
+      eprint={2108.01073},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 ```
 
 This implementation is based on / inspired by:
