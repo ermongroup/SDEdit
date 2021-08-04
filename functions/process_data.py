@@ -11,9 +11,3 @@ def download_process_data(path="colab_demo"):
     torch.hub.download_url_to_file('https://image-editing-test-12345.s3-us-west-2.amazonaws.com/colab_examples/lsun_edit.pth', os.path.join(path, 'lsun_edit.pth'))
     torch.hub.download_url_to_file('https://image-editing-test-12345.s3-us-west-2.amazonaws.com/colab_examples/lsun_church.pth', os.path.join(path, 'lsun_church.pth'))
     print("Data downloaded")
-
-
-
-
-
-
