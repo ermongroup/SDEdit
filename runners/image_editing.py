@@ -30,8 +30,7 @@ def extract(a, t, x_shape):
 def image_editing_denoising_step_flexible_mask(x, t, *,
                                                model,
                                                logvar,
-                                               betas,
-                                               return_pred_xstart=False):
+                                               betas):
     """
     Sample from p(x_{t-1} | x_t)
     """
@@ -48,8 +47,6 @@ def image_editing_denoising_step_flexible_mask(x, t, *,
     mask = mask.reshape((x.shape[0],) + (1,) * (len(x.shape) - 1))
     sample = mean + mask * torch.exp(0.5 * logvar) * noise
     sample = sample.float()
-    if return_pred_xstart:
-        return sample, pred_xstart
     return sample
 
 
@@ -131,8 +128,7 @@ class Diffusion(object):
                         t = (torch.ones(n) * i).to(self.device)
                         x_ = image_editing_denoising_step_flexible_mask(x, t=t, model=model,
                                                                         logvar=self.logvar,
-                                                                        betas=self.betas,
-                                                                        return_pred_xstart=False)
+                                                                        betas=self.betas)
                         x = x0 * a[i].sqrt() + e * (1.0 - a[i]).sqrt()
                         x[:, (mask != 1.)] = x_[:, (mask != 1.)]
                         # added intermediate step vis
