@@ -102,8 +102,7 @@ def SDEditing(betas, logvar, model, name, sample_step, total_noise_levels, n=4):
                     t = (torch.ones(n) * i).to(device)
                     x_ = image_editing_denoising_step_flexible_mask(x, t=t, model=model,
                                                                     logvar=logvar,
-                                                                    betas=betas,
-                                                                    return_pred_xstart=False)
+                                                                    betas=betas)
                     x = x0 * a[i].sqrt() + e * (1.0 - a[i]).sqrt()
                     x[:, (mask != 1.)] = x_[:, (mask != 1.)]
                     # added intermediate step vis
