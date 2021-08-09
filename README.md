@@ -37,6 +37,9 @@ We save the image and the corresponding mask in an array format ``[image, mask]`
 "image" is the image with range ``[0,1]`` in the PyTorch tensor format, "mask" is the corresponding binary mask (also the PyTorch tensor format) specifying the editing region.
 We provide a few examples, and ``functions/process_data.py``  will automatically download the examples to the ``colab_demo`` folder.
 
+### Re-training the model
+Here is the [PyTorch implementation](https://github.com/ermongroup/ddim) for training the model.
+
 
 ## Stroke-based image generation
 Given an input stroke painting, our goal is to generate a realistic image that shares the same structure as the input painting.
