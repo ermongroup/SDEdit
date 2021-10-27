@@ -9,7 +9,7 @@
 
 PyTorch implementation of SDEdit: Image Synthesis and Editing with Stochastic Differential Equations.
 
-[Chenlin Meng](https://cs.stanford.edu/~chenlin/), [Yang Song](https://yang-song.github.io/), [Jiaming Song](http://tsong.me/),
+[Chenlin Meng](https://cs.stanford.edu/~chenlin/), [Yutong He](http://web.stanford.edu/~kellyyhe/), [Yang Song](https://yang-song.github.io/), [Jiaming Song](http://tsong.me/),
 [Jiajun Wu](https://jiajunwu.com/), [Jun-Yan Zhu](https://www.cs.cmu.edu/~junyanz/), [Stefano Ermon](https://cs.stanford.edu/~ermon/)
 
 Stanford and CMU
