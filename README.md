@@ -81,9 +81,9 @@ python main.py --exp ./runs/  --config church.yml --sample -i images --npy_name 
 If you find this repository useful for your research, please cite the following work.
 ```
 @article{meng2021sdedit,
-      title={SDEdit: Image Synthesis and Editing with Stochastic Differential Equations},
-      author={Chenlin Meng and Yang Song and Jiaming Song and Jiajun Wu and Jun-Yan Zhu and Stefano Ermon},
-      year={2021},
+      title={SDEdit: Guided Image Synthesis and Editing with Stochastic Differential Equations},
+      author={Chenlin Meng and Yutong He and Yang Song and Jiaming Song and Jiajun Wu and Jun-Yan Zhu and Stefano Ermon},
+      year={2022},
       journal={arXiv preprint arXiv:2108.01073},
 }
 ```
