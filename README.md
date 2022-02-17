@@ -1,4 +1,4 @@
-# SDEdit: Image Synthesis and Editing with Stochastic Differential Equations
+# SDEdit: Guided Image Synthesis and Editing with Stochastic Differential Equations
 <br>
 
 <p align="center">
@@ -7,7 +7,7 @@
 
 [**Project**](https://sde-image-editing.github.io/) | [**Paper**](https://arxiv.org/abs/2108.01073) | [**Colab**](https://colab.research.google.com/drive/1KkLS53PndXKQpPlS1iK-k1nRQYmlb4aO?usp=sharing)
 
-PyTorch implementation of **SDEdit: Image Synthesis and Editing with Stochastic Differential Equations** (ICLR 2022).
+PyTorch implementation of **SDEdit: Guided Image Synthesis and Editing with Stochastic Differential Equations** (ICLR 2022).
 
 [Chenlin Meng](https://cs.stanford.edu/~chenlin/), [Yutong He](http://web.stanford.edu/~kellyyhe/), [Yang Song](https://yang-song.github.io/), [Jiaming Song](http://tsong.me/),
 [Jiajun Wu](https://jiajunwu.com/), [Jun-Yan Zhu](https://www.cs.cmu.edu/~junyanz/), [Stefano Ermon](https://cs.stanford.edu/~ermon/)
