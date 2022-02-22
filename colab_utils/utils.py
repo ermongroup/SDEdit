@@ -1,17 +1,17 @@
-import torch
-import warnings
-from runners.image_editing import *
-from main import dict2namespace
-from functions.process_data import *
 import os
-import yaml
 import sys
-import numpy as np
-from tqdm import tqdm
+import warnings
+
 import matplotlib.pyplot as plt
+import numpy as np
+import torch
+import yaml
+from functions.process_data import *
+from main import dict2namespace
+from runners.image_editing import *
+from tqdm import tqdm
 
 sys.path.append("../")
-
 
 warnings.filterwarnings("ignore")
 
@@ -60,7 +60,7 @@ def load_model(dataset, category, file):
     alphas_cumprod = np.cumprod(alphas, axis=0)
     alphas_cumprod_prev = np.append(1.0, alphas_cumprod[:-1])
     posterior_variance = betas * \
-        (1.0 - alphas_cumprod_prev) / (1.0 - alphas_cumprod)
+                         (1.0 - alphas_cumprod_prev) / (1.0 - alphas_cumprod)
     logvar = np.log(np.maximum(posterior_variance, 1e-20))
 
     return model, betas, num_timesteps, logvar
@@ -70,7 +70,7 @@ def imshow(img, title=""):
     img = img.to("cpu")
     img = img.permute(1, 2, 0, 3)
     img = img.reshape(img.shape[0], img.shape[1], -1)
-    img = img / 2 + 0.5     # unnormalize
+    img = img / 2 + 0.5  # unnormalize
     img = torch.clamp(img, min=0., max=1.)
     npimg = img.numpy()
     plt.imshow(np.transpose(npimg, (1, 2, 0)))
@@ -103,7 +103,10 @@ def SDEditing(betas, logvar, model, name, sample_step, total_noise_levels, n=4):
                     x_ = image_editing_denoising_step_flexible_mask(x, t=t, model=model,
                                                                     logvar=logvar,
                                                                     betas=betas)
-                    x = x0 * a[i].sqrt() + e * (1.0 - a[i]).sqrt()
+                    if i > 0:
+                        x = x0 * a[i - 1].sqrt() + e * (1.0 - a[i - 1]).sqrt()
+                    else:
+                        x = x0
                     x[:, (mask != 1.)] = x_[:, (mask != 1.)]
                     # added intermediate step vis
                     if (i - 99) % 100 == 0:
