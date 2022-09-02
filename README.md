@@ -95,3 +95,7 @@ This implementation is based on / inspired by:
 - [DDPM TensorFlow repo](https://github.com/hojonathanho/diffusion).
 - [PyTorch helper that loads the DDPM model](https://github.com/pesser/pytorch_diffusion).
 - [code structure](https://github.com/ermongroup/ncsnv2).
+
+Here are also some of the interesting follow-up works of SDEdit:
+
+- [Image Modification with Stable Diffusion](https://github.com/CompVis/stable-diffusion#image-modification-with-stable-diffusion)
