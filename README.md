@@ -1,6 +1,8 @@
 # SDEdit: Guided Image Synthesis and Editing with Stochastic Differential Equations
 <br>
 
+<i>The <a href="https://github.com/CompVis/stable-diffusion#image-modification-with-stable-diffusion">"img2img"</a> algorithim for Stable Diffusion was first proposed in this work.</i>
+
 <p align="center">
 <img src="https://github.com/ermongroup/SDEdit/blob/main/images/sde_animation.gif" width="320"/>
 </p>
