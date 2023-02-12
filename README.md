@@ -1,8 +1,6 @@
 # SDEdit: Guided Image Synthesis and Editing with Stochastic Differential Equations
 <br>
 
-<i>The <a href="https://github.com/CompVis/stable-diffusion#image-modification-with-stable-diffusion">"img2img"</a> algorithim for Stable Diffusion was first proposed in this work.</i>
-
 <p align="center">
 <img src="https://github.com/ermongroup/SDEdit/blob/main/images/sde_animation.gif" width="320"/>
 </p>
@@ -20,6 +18,13 @@ Stanford and CMU
 <p align="center">
 <img src="https://github.com/ermongroup/SDEdit/blob/main/images/teaser.jpg" />
 </p>
+
+Recently, SDEdit has also been applied to text-guided image editing with large-scale text-to-image models. Notable examples include <a href="https://en.wikipedia.org/wiki/Stable_Diffusion">Stable Diffusion</a>'s img2img function (see  <a href="https://github.com/CompVis/stable-diffusion#image-modification-with-stable-diffusion">here</a>), <a href="https://arxiv.org/abs/2112.10741">GLIDE</a>, and <a href="https://arxiv.org/abs/2210.03142">distilled-SD</a>. The below example comes from <a href="https://arxiv.org/abs/2210.03142">distilled-SD</a>.
+
+<p align="center">
+<img src="https://github.com/ermongroup/SDEdit/blob/main/images/text_guided_img2img.png" />
+</p>
+
 
 ## Overview
 The key intuition of SDEdit is to "hijack" the reverse stochastic process of SDE-based generative models, as illustrated in the figure below. Given an input image for editing, such as a stroke painting or an image with color strokes, we can add a suitable amount of noise to make its artifacts undetectable, while still preserving the overall structure of the image. We then initialize the reverse SDE with this noisy input, and simulate the reverse process to obtain a denoised image of high quality. The final output is realistic while resembling the overall image structure of the input.
