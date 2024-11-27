@@ -9,6 +9,7 @@ import sys
 import numpy as np
 from tqdm import tqdm
 import matplotlib.pyplot as plt
+from PIL import Image
 
 sys.path.append("../")
 
@@ -18,11 +19,23 @@ warnings.filterwarnings("ignore")
 device = "cuda"
 
 
+URL_MAP = {
+    "cifar10": "https://heibox.uni-heidelberg.de/f/869980b53bf5416c8a28/?dl=1",
+    "ema_cifar10": "https://heibox.uni-heidelberg.de/f/2e4f01e2d9ee49bab1d5/?dl=1",
+    "lsun_bedroom": "https://heibox.uni-heidelberg.de/f/f179d4f21ebc4d43bbfe/?dl=1",
+    "ema_lsun_bedroom": "https://heibox.uni-heidelberg.de/f/b95206528f384185889b/?dl=1",
+    "lsun_cat": "https://heibox.uni-heidelberg.de/f/fac870bd988348eab88e/?dl=1",
+    "ema_lsun_cat": "https://heibox.uni-heidelberg.de/f/0701aac3aa69457bbe34/?dl=1",
+    "lsun_church": "https://heibox.uni-heidelberg.de/f/2711a6f712e34b06b9d8/?dl=1",
+    "ema_lsun_church": "https://heibox.uni-heidelberg.de/f/44ccb50ef3c6436db52e/?dl=1",
+}
+
+# It's recommended to download the checkpoint files manually
 def get_checkpoint(dataset, category):
     if category == "bedroom":
-        url = "https://image-editing-test-12345.s3-us-west-2.amazonaws.com/checkpoints/bedroom.ckpt"
+        url = "https://huggingface.co/gwang-kim/DiffusionCLIP-LSUN_Bedroom/resolve/main/bedroom.ckpt"
     elif category == "church_outdoor":
-        url = "https://image-editing-test-12345.s3-us-west-2.amazonaws.com/checkpoints/church_outdoor.ckpt"
+        url = r"C:\Users\Administrator\Downloads\ema_lsun_church.ckpt"
     elif dataset == "CelebA_HQ":
         url = "https://image-editing-test-12345.s3-us-west-2.amazonaws.com/checkpoints/celeba_hq.ckpt"
     else:

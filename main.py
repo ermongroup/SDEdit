@@ -23,9 +23,10 @@ def parse_args_and_config():
     parser.add_argument('--sample', action='store_true', help='Whether to produce samples from the model')
     parser.add_argument('-i', '--image_folder', type=str, default='images', help="The folder name of samples")
     parser.add_argument('--ni', action='store_true', help="No interaction. Suitable for Slurm Job launcher")
-    parser.add_argument('--npy_name', type=str, required=True)
     parser.add_argument('--sample_step', type=int, default=3, help='Total sampling steps')
     parser.add_argument('--t', type=int, default=400, help='Sampling noise scale')
+    parser.add_argument('--img', type=str, default="image.jpg", help='Image path')
+    parser.add_argument('--init_dir', type=str, default=None, help='use all images in the directory for initialization')
     args = parser.parse_args()
 
     # parse config file

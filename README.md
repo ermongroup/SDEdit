@@ -2,7 +2,7 @@
 <br>
 
 <p align="center">
-<img src="https://github.com/ermongroup/SDEdit/blob/main/images/sde_animation.gif" width="320"/>
+<img src="images/sde_animation.gif" width="320"/>
 </p>
 
 [**Project**](https://sde-image-editing.github.io/) | [**Paper**](https://arxiv.org/abs/2108.01073) | [**Colab**](https://colab.research.google.com/drive/1KkLS53PndXKQpPlS1iK-k1nRQYmlb4aO?usp=sharing)
@@ -16,13 +16,13 @@ Stanford and CMU
 
 
 <p align="center">
-<img src="https://github.com/ermongroup/SDEdit/blob/main/images/teaser.jpg" />
+<img src="images/teaser.jpg" />
 </p>
 
 Recently, SDEdit has also been applied to text-guided image editing with large-scale text-to-image models. Notable examples include <a href="https://en.wikipedia.org/wiki/Stable_Diffusion">Stable Diffusion</a>'s img2img function (see  <a href="https://github.com/CompVis/stable-diffusion#image-modification-with-stable-diffusion">here</a>), <a href="https://arxiv.org/abs/2112.10741">GLIDE</a>, and <a href="https://arxiv.org/abs/2210.03142">distilled-SD</a>. The below example comes from <a href="https://arxiv.org/abs/2210.03142">distilled-SD</a>.
 
 <p align="center">
-<img src="https://github.com/ermongroup/SDEdit/blob/main/images/text_guided_img2img.png" />
+<img src="images/text_guided_img2img.png" />
 </p>
 
 
@@ -30,14 +30,14 @@ Recently, SDEdit has also been applied to text-guided image editing with large-s
 The key intuition of SDEdit is to "hijack" the reverse stochastic process of SDE-based generative models, as illustrated in the figure below. Given an input image for editing, such as a stroke painting or an image with color strokes, we can add a suitable amount of noise to make its artifacts undetectable, while still preserving the overall structure of the image. We then initialize the reverse SDE with this noisy input, and simulate the reverse process to obtain a denoised image of high quality. The final output is realistic while resembling the overall image structure of the input.
 
 <p align="center">
-<img src="https://github.com/ermongroup/SDEdit/blob/main/images/sde_stroke_generation.jpg" />
+<img src="images/sde_stroke_generation.jpg" />
 </p>
 
 ## Getting Started
 The code will automatically download pretrained SDE (VP) PyTorch models on
-[CelebA-HQ](https://image-editing-test-12345.s3-us-west-2.amazonaws.com/checkpoints/celeba_hq.ckpt),
-[LSUN bedroom](https://image-editing-test-12345.s3-us-west-2.amazonaws.com/checkpoints/bedroom.ckpt),
-and [LSUN church outdoor](https://image-editing-test-12345.s3-us-west-2.amazonaws.com/checkpoints/church_outdoor.ckpt).
+[CelebA-HQ](https://huggingface.co/XUXR/SDEdit/resolve/main/celeba_hq.ckpt),
+[LSUN bedroom](https://huggingface.co/XUXR/SDEdit/blob/main/celeba_hq.ckpt), 
+and [LSUN church outdoor](https://huggingface.co/XUXR/SDEdit/blob/main/ema_lsun_church.ckpt).
 
 ### Data format
 We save the image and the corresponding mask in an array format ``[image, mask]``, where
@@ -57,31 +57,37 @@ SDEdit can synthesize multiple diverse outputs for each input on LSUN bedroom, L
 To generate results on LSUN datasets, please run
 
 ```
-python main.py --exp ./runs/ --config bedroom.yml --sample -i images --npy_name lsun_bedroom1 --sample_step 3 --t 500  --ni
+python main.py --exp ./runs/  --config celeba.yml --img <path_to_img.jpg> --sample -i images --sample_step 3 --t 500  --ni
 ```
 ```
-python main.py --exp ./runs/ --config church.yml --sample -i images --npy_name lsun_church --sample_step 3 --t 500  --ni
+python main.py --exp ./runs/ --config church.yml --sample -i images --img <path_to_img.jpg> --sample_step 3 --t 500  --ni
 ```
 
+Use all images in a directory, please run
+
+```
+python main.py --exp ./runs/ --config church.yml --sample -i images --sample_step 1 --t 300  --ni --init_dir <path to dir of images>
+```
 <p align="center">
-<img src="https://github.com/ermongroup/SDEdit/blob/main/images/stroke_based_generation.jpg" width="800">
+<img src="images/stroke_based_generation.jpg" width="800">
 </p>
 
 ## Stroke-based image editing
 Given an input image with user strokes, we want to manipulate a natural input image based on the user's edit.
 SDEdit can generate image edits that are both realistic and faithful (to the user edit), while avoid introducing undesired changes.
 <p align="center">
-<img src="https://github.com/ermongroup/SDEdit/blob/main/images/stroke_edit.jpg" width="800">
+<img src="images/stroke_edit.jpg" width="800">
 </p>
+
 To perform stroke-based image editing, run
 
 ```
-python main.py --exp ./runs/  --config church.yml --sample -i images --npy_name lsun_edit --sample_step 3 --t 500  --ni
+python main.py --exp ./runs/  --config church.yml --sample -i images --img <path to image> --sample_step 3 --t 500  --ni
 ```
 
 ## Additional results
 <p align="center">
-<img src="https://github.com/ermongroup/SDEdit/blob/main/images/stroke_generation_extra.jpg" width="800">
+<img src="images/stroke_generation_extra.jpg" width="800">
 </p>
 
 ## References
